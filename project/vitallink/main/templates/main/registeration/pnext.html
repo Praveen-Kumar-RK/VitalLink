@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d9e7ff, #f1f7ff);
+      color: #333;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 750px;
+      margin: 50px auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #2E8BC0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      background: #f9fbff;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    select {
+      background-color: #f8f8f8;
+    }
+
+    .file-upload-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .file-upload-container select,
+    .file-upload-container input {
+      flex: 1;
+    }
+
+    button {
+      background: #2E8BC0;
+      color: white;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1A629A;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Health Information</h2>
+    <form id="health-form">
+      
+      <div class="form-group">
+        <label for="medical-conditions">Do you have any medical conditions?</label>
+        <textarea id="medical-conditions" name="medical-conditions" rows="4" placeholder="List out your diagnosed conditions" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="allergies">Do you have any allergies?</label>
+        <textarea id="allergies" name="allergies" rows="4" placeholder="List out your specific allergies"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="current-medications">Are you currently taking any medications?</label>
+        <textarea id="current-medications" name="current-medications" rows="4" placeholder="List out the medicine names" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="family-history">Do you have a family history of any medical conditions?</label>
+        <textarea id="family-history" name="family-history" rows="4" placeholder="List out conditions with respective family members" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="diet">Diet</label>
+        <select id="diet" name="diet" required>
+          <option value="">Select your diet</option>
+          <option value="Balanced">Balanced diet</option>
+          <option value="Junk">Mostly junk</option>
+          <option value="Balanced but occasional junk">Balanced but occasionally junk</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="exercise">Exercise on a weekly basis</label>
+        <input type="number" id="exercise" name="exercise" min="0" max="20" step="1" placeholder="Number of times per week">
+      </div>
+
+      <div class="form-group">
+        <label for="smoke">Do you smoke?</label>
+        <select id="smoke" name="smoke" required>
+          <option value="">Select according to your habit</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="sometimes">Sometimes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="smoke-frequency">If yes, how many in a day?</label>
+        <input type="number" id="smoke-frequency" name="smoke-frequency" min="0" step="1" placeholder="Cigarettes per day">
+      </div>
+
+      <div class="form-group">
+        <label for="drink">Do you drink?</label>
+        <select id="drink" name="drink" required>
+          <option value="">Select according to your habit</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="sometimes">Sometimes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="drink-frequency">If yes, how many glasses a day?</label>
+        <input type="number" id="drink-frequency" name="drink-frequency" min="0" step="1" placeholder="Glasses per day">
+      </div>
+
+      <!-- Medical Documents Upload Section -->
+      <div class="form-group">
+        <label for="medical-docs">Upload Medical Reports</label>
+        <div class="file-upload-container">
+          <select id="medical-doc-type" name="medical-doc-type">
+            <option value="">Select document type</option>
+            <option value="CT Scan">CT Scan</option>
+            <option value="X-ray">X-ray</option>
+            <option value="Blood Test">Blood Test</option>
+            <option value="MRI">MRI</option>
+            <option value="Ultrasound">Ultrasound</option>
+            <option value="ECG">ECG (Electrocardiogram)</option>
+            <option value="Others">Others</option>
+          </select>
+          <input type="file" id="medical-doc" name="medical-doc" accept=".pdf, .jpg, .png, .jpeg">
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("health-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Health data submitted successfully.");
+    });
+  </script>
+
+</body>
+</html>

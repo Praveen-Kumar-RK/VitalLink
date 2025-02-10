@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Information Form</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #eef2f7;
+      color: #333;
+    }
+
+    /* Navbar Styling */
+    nav {
+      background-color: #2E8BC0;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 15px;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      background-color: #1A629A;
+      color: white;
+    }
+
+    /* Form Container */
+    .form-container {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 750px;
+      margin: 50px auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #2E8BC0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="file"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    select {
+      background-color: #f8f8f8;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .file-upload {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .file-upload input {
+      margin-top: 10px;
+    }
+
+    .health-section {
+      background-color: #f3faff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .health-section h3 {
+      color: #2E8BC0;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .health-section .form-group {
+      margin-bottom: 15px;
+    }
+
+    .health-section .form-group label {
+      color: #555;
+    }
+
+    .form-group small {
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Patient Form</a>
+    <a href="#">About</a>
+  </nav>
+
+  <!-- Patient Form -->
+  <div class="form-container">
+    <h2>Patient Information Form</h2>
+    <form id="patient-form">
+      <!-- Basic Info -->
+      <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="insurance">Insurance</label>
+        <select id="insurance" name="insurance" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <!-- Patient History Section -->
+      <div class="form-group file-upload">
+        <label for="patient-history">Suffering from any of the following medical conditions?</label>
+        <label for="patient-history">
+          <input type="checkbox" name="patient-history" id="none" value="none"> None
+        </label><br>
+        <label for="diabetes">
+          <input type="checkbox" name="diabetes" id="diabetes" value="diabetes"> Diabetes
+        </label><br>
+        <label for="blood-pressure">
+          <input type="checkbox" name="bp" id="bp" value="blood-pressure"> Blood Pressure
+        </label><br>
+      </div>
+
+      <!-- Health Section -->
+      <div class="health-section">
+        <h3>Patient Records Upload</h3>
+        
+        <!-- Medical Conditions -->
+        <div class="form-group">
+          <label for="medical-conditions">Do you have any medical conditions?</label>
+          <textarea id="medical-conditions" name="medical-conditions" rows="4" placeholder="List any chronic conditions or illnesses." required></textarea>
+        </div>
+
+        <!-- Allergies -->
+        <div class="form-group">
+          <label for="allergies">Do you have any allergies?</label>
+          <textarea id="allergies" name="allergies" rows="4" placeholder="Include any allergies to food, medications, or environmental factors." required></textarea>
+        </div>
+
+        <!-- Current Medications -->
+        <div class="form-group">
+          <label for="current-medications">Are you currently taking any medications?</label>
+          <textarea id="current-medications" name="current-medications" rows="4" placeholder="Please list all medications you are currently taking." required></textarea>
+        </div>
+
+        <!-- Family Medical History -->
+        <div class="form-group">
+          <label for="family-history">Do you have a family history of any medical conditions?</label>
+          <textarea id="family-history" name="family-history" rows="4" placeholder="Include any hereditary conditions or diseases." required></textarea>
+        </div>
+
+        <!-- Lifestyle Factors -->
+        <div class="form-group">
+          <label for="lifestyle-factors">Please describe your lifestyle habits (e.g., diet, exercise, smoking, alcohol use, etc.):</label>
+          <textarea id="lifestyle-factors" name="lifestyle-factors" rows="4" placeholder="Include your typical diet, physical activity, smoking or alcohol consumption, etc." required></textarea>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
